@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: darkgrey; /*linear-gradient(to right, #00aaff, #00ff6c);*/
+}
+
+.calculator-grid {
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 6rem); /* to have 4 columns*/
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem); /* to have 5 rows, 7rem is min size and the auto
+  is in case the number is long it can adjust */
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.span-two {
+  grid-column: span 2; /* AC and = button have the size of 2 columns*/
+}
+.output {
+  grid-column: 1/-1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column; /* direction of the number in the output to be one on top of the other*/
+  align-items: flex-end; /*to have the output to the end side (right side) of output box*/
+  justify-content: space-around; /* have the output eith spaces on top and bottom*/
+  padding: 0.75rem; /* have some space on the sides*/
+  word-wrap: break-word; /* to allow the wrap*/
+  word-break: break-all; /* to break into the next line if the output number is long*/
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
